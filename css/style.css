@@ -1,0 +1,31 @@
+.wrapper { width: 100%; height: 100vh; background: #eee; min-height: 768px; display: flex; align-items: center; justify-content: center; } 
+
+/* Main Contents Box Style Code */
+.dashboard { width: 90%; height: 90%; background: #f9f9f9; max-width: 1280px; margin: auto; min-width: 720px; box-shadow: 0 0 128px 0 rgb(0 0 0 / 10%), 0 32px 64px -48px rgb(0 0 0 / 50%); border-radius: 15px; display: flex; padding: 10px; justify-content: space-between; } 
+.dashboard > * { border-radius: 15px; } 
+
+/* Navigation Section Style Code */
+#gnb { width: 10%; height: 100%; background: #7c41f5; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 30px 0; } 
+#gnb a { color: #fff; font-size: 24px; } 
+#gnb ul { width: 100%; } 
+#gnb ul a { width: 100%; padding: 20px 0; display: flex; justify-content: center; } 
+
+/* Graph Section Style Code */
+#graph-section { width: calc(55% - 20px); height: 100%; } 
+#graph-section > div { width: 100%; height: 33.33%; border-radius: 15px; } 
+#graph-section > div.intro { background: #ff9062; } 
+#graph-section > div.each-pofol { padding: 20px 0; } 
+#graph-section > div.each-pofol > div { width: 100%; height: 100%; border-radius: 15px; } 
+#graph-section > div.total-pofol { border: 1px solid #f7f7f7; box-shadow: 0px 0px 3px #ccc; background: #fff; } 
+#graph-section .each-pofol .each-title { width: 100%; height: 25%; padding-top: 10px;}
+#graph-section .each-pofol .each-title::after {
+  content: "";
+  display: block;
+  width: 250px;
+  border-bottom: 1px solid black;
+}
+#graph-section .each-pofol .each-graph { width: 100%; height: 75%; display: flex; justify-content: space-between; } 
+#graph-section .each-pofol .each-graph div { width: calc(25% - 7.5px); height: 100%; border: 1px solid #f7f7f7; border-radius: 15px; box-shadow: 0px 0px 3px #ccc; } 
+
+/* Table Section Style Code */
+#table-section { width: 35%; height: 100%; background: #222 } 
