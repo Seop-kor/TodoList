@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/stylem.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box-wrapper">
+      <div class="first">1</div>
+      <div class="second">2</div>
+      <div class="third">3</div>
+    </div>
+  </div>
+  <div class="btns">
+    <button type="button" class="prev">Prev</button>
+    <button type="button" class="next">Next</button>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+    const length = document.querySelectorAll(".box-wrapper div").length;
+    const eleWidth = $(".box-wrapper div").width();
+    let current = 0;
+
+    $(".box-wrapper").css({marginLeft: -eleWidth});
+    const det = $(".box-wrapper div:last-child").detach();
+    det.prependTo($(".box-wrapper"));
+    const leftFn = () => {
+      // $(".box-wrapper").animate({left: "-100" * n + "%"}, 600);
+      $(".box-wrapper").animate({left: + eleWidth}, 600, function() {
+        const det = $(".box-wrapper div:last-child").detach();
+        det.prependTo($(".box-wrapper"));
+        $(".box-wrapper").css("left", '');
+        // $(".box-wrapper").prependTo(det);
+      });
+      // const det = $(".box-wrapper div").eq(current).detach();
+      // console.log(det);
+      // $(".box-wrapper").append(det);
+    };
+    const rightFn = () => {
+      $(".box-wrapper").animate({left: - eleWidth}, 600, function() {
+        const det = $(".box-wrapper div:first-child").detach();
+        det.appendTo($(".box-wrapper"));
+        $(".box-wrapper").css("left", '');
+        // $(".box-wrapper").appendTo(det);
+      });
+    };
+    prev.addEventListener("click", () => {
+      // if(current === 0) return false;
+      leftFn();
+      // (length + (current - 1)) % length
+    });
+    next.addEventListener("click", () => {
+      // if(current === 2) return false;
+      rightFn();
+    });
+
+    // setInterval(() => {
+    //   sliderFn((current + 1) % length);
+    // }, 3000)
+  </script>
+</body>
+</html>

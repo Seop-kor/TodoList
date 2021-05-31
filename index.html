@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/todo/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/todo/img/favicon.ico" type="image/x-icon">
   <!-- Google Font Roboto, Noto Sans -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -13,6 +16,7 @@
   <link rel="stylesheet" href="/todo/css/reset.css">
   <!-- Main CSS LINK -->
   <link rel="stylesheet" href="/todo/css/style.css">
+  <link rel="stylesheet" href="/todo/css/animation.css">
   <title>TODO Process</title>
 </head>
 <body>
@@ -21,7 +25,7 @@
     <div class="dashboard">
       <!-- Navigation Section -->
       <nav id="gnb">
-        <h2><a href="#">LO</a></h2>
+        <h2><a href="#"></a></h2>
         <ul>
           <li><a href="#"><i class="fa fa-trello"></i></a></li>
           <li><a href="#"><i class="fa fa-pencil"></i></a></li>
@@ -31,7 +35,12 @@
       </nav>
       <!-- Graph Section Area -->
       <section id="graph-section">
-        <div class="intro"></div>
+        <div class="intro">
+          <h2>Database Project Process</h2>
+          <p>데이터베이스 테이블 설계 완료. <br>테이블 UI 디자인 완료</p>
+          <a href="#">More Details</a>
+          <i class="fa fa-database"></i>
+        </div>
         <div class="each-pofol">
           <div>
             <div class="each-title">
@@ -49,7 +58,38 @@
       </section>
       <!-- Table Section Area -->
       <section id="table-section">
-
+        <div class="new-update">
+          <div class="new-update-title">
+            <p>Recent Update</p>
+            <a href="#">More</a>
+          </div>
+          <ul class="update-details">
+            <li>
+              <i class="fa fa-database"></i>
+              <div class="detail-text">
+                <p><a href="#">데이터 베이스 테이블 설계 완료</a></p>
+                <em>2021-05-31</em>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="each-contents">
+          <div class="each-btns">
+            <button class="active">Database</button>
+            <button>API</button>
+            <button>Renewal</button>
+            <button>Planning</button>
+          </div>
+          <ul class="update-details">
+            <li>
+              <i class="fa fa-database"></i>
+              <div class="detail-text">
+                <p><a href="#">데이터 베이스 테이블 설계 완료</a></p>
+                <em>2021-05-31</em>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
     </div>
   </div>

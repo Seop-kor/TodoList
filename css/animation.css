@@ -1,0 +1,24 @@
+@keyframes fade-up-01 {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes fade-up-02 {
+  from{
+  }
+  to{
+
+  }
+}
+@keyframes fade-up-03 {
+  from{
+  }
+  to{
+
+  }
+}

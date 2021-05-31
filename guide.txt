@@ -1,3 +1,8 @@
 #7c41f5
 #ff9062
 #3acbe8
+
+fa-database
+fa-thermometer-half
+fa-clone
+fa-chart-o
