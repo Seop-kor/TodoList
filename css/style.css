@@ -1,7 +1,7 @@
 .wrapper { width: 100%; height: 100vh; background: #eee; min-height: 768px; display: flex; align-items: center; justify-content: center; } 
 
 /* Main Contents Box Style Code */
-.dashboard { width: 90%; height: 90%; background: #f9f9f9; max-width: 1280px; margin: auto; min-width: 720px; box-shadow: 0 0 128px 0 rgb(0 0 0 / 10%), 0 32px 64px -48px rgb(0 0 0 / 50%); border-radius: 15px; display: flex; padding: 10px; justify-content: space-between; } 
+.dashboard { width: 90%; height: 90%; background: #f9f9f9; max-width: 1280px; margin: auto; _min-width: 720px; box-shadow: 0 0 128px 0 rgb(0 0 0 / 10%), 0 32px 64px -48px rgb(0 0 0 / 50%); border-radius: 15px; display: flex; padding: 10px; justify-content: space-between; } 
 .dashboard > * { border-radius: 15px; } 
 /* End Main Contents Box Style Code */
 
@@ -11,23 +11,50 @@
 #gnb a { color: #fff; font-size: 24px; } 
 #gnb ul { width: 100%; } 
 #gnb ul a { width: 100%; padding: 20px 0; display: flex; justify-content: center; } 
+
+/* Mobile Menu */
+#gnb .mobile-menu { width: 25px; height: 25px; position: relative; display: none; transition: all 0.4s; } 
+/* #gnb .mobile-menu.active { transform: rotate(135deg); } */
+/* #gnb .mobile-menu span { background: #fff; display: block; position: absolute; } */
+#gnb .mobile-menu span { background: #fff; border-radius:10px; height: 3px; margin: 5px 0; transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6); width: 100%; display: block; } 
+#gnb .mobile-menu.active span:nth-child(1) { width: 50%; transform: rotate(45deg) translate(4px, 0px); } 
+#gnb .mobile-menu.active span:nth-child(2) { transform-origin: top; transform: rotateZ(-45deg); } 
+#gnb .mobile-menu.active span:nth-child(3) { width: 50%; transform: rotate(225deg) translate(-5px, 11px); } 
+/* #gnb .mobile-menu span:nth-child(1) { width: 100%; height: 2px; top: 50%; transform: translateY(-50%); } */
+/* #gnb .mobile-menu span:nth-child(2) { width: 2px; height: 100%; left: 50%; transform: translateX(-50%); } */
+
 /* End Navigation Section Style Code */
 
 /* Graph Section Style Code */
 #graph-section { width: calc(55% - 20px); height: 100%; } 
 #graph-section > div { width: 100%; height: 33.33%; border-radius: 15px; } 
-#graph-section > div.intro { background: #ff9062; padding: 40px; display: flex; flex-direction: column; color: #fff; justify-content: center; position: relative; overflow: hidden; } 
-#graph-section > div.intro h2 { font-size: 35px; text-transform: uppercase; font-weight: 700; transform: translateY(25px); transition: all .5s ease; opacity: 0; animation: fade-up-01 0.5s 1 forwards; } 
-#graph-section > div.intro p { transform: translateY(25px); transition: all .5s ease; opacity: 0; animation: fade-up-01 0.5s 1 forwards; animation-delay: 0.5s; } 
-#graph-section > div.intro a { color: #fff; border: 1px solid #fff; width: 100px; text-align: center; padding: 7px 0; margin-top: 10px; transition: all .4s ease; font-size: 12px; transform: translateY(25px); transition: all .5s ease; opacity: 0; animation: fade-up-01 0.5s 1 forwards; animation-delay: 1s; } 
-#graph-section > div.intro a:hover { background: #fff; color: #ff9062; } 
-#graph-section > div.intro i { position: absolute; font-size: 150px; right: -20px; top: -5px; opacity: 0.3; } 
+#graph-section div.intro { background: #ff9062; color: #fff; justify-content: center; overflow: hidden; height: 100%!important; } 
+#graph-section div.intro h2 { font-size: 35px; text-transform: uppercase; font-weight: 700; transform: translateY(25px); opacity: 0; } 
+#graph-section div.intro p { transform: translateY(25px); opacity: 0; } 
+#graph-section div.intro a { color: #fff; border: 1px solid #fff; width: 100px; text-align: center; padding: 7px 0; margin-top: 10px; font-size: 12px; transform: translateY(25px); opacity: 0; } 
+#graph-section div.intro a:hover { background: #fff; color: #ff9062; } 
+#graph-section div.intro i { position: absolute; font-size: 150px; right: -20px; top: -5px; opacity: 0.3; } 
 #graph-section > div.each-pofol { padding: 20px 0; } 
 #graph-section > div.each-pofol > div { width: 100%; height: 100%; border-radius: 15px; } 
 #graph-section > div.total-pofol { border: 1px solid #f7f7f7; box-shadow: 0px 0px 3px #ccc; background: #fff; } 
 #graph-section .each-pofol .each-title { width: 100%; height: 25%; padding-top: 10px; } 
 #graph-section .each-pofol .each-graph { width: 100%; height: 75%; display: flex; justify-content: space-between; } 
 #graph-section .each-pofol .each-graph div { width: calc(25% - 7.5px); height: 100%; border: 1px solid #f7f7f7; border-radius: 15px; box-shadow: 0px 0px 3px #ccc; } 
+
+#graph-section div.intro .slide-box { padding: 40px 50px; height: 100%; position: relative; display: flex; flex-direction: column; justify-content: center; } 
+/* #graph-section div.intro .slide-box:nth-child(2) { background: #ff9062; } 
+#graph-section div.intro .slide-box:nth-child(3) { background: #7c41f5; } 
+#graph-section div.intro .slide-box:nth-child(4) { background: #3acbe8; } 
+#graph-section div.intro .slide-box:nth-child(5) { background: tomato; } */
+#graph-section div.intro .database { background: #ff9062; } 
+#graph-section div.intro .api { background: #7c41f5; } 
+#graph-section div.intro .renewal { background: #3acbe8; } 
+#graph-section div.intro .gigi { background: tomato; } 
+
+#graph-section div.intro .slide-box.active h2 { transition: all 0.5s; animation: fade-up-01 0.5s 1 forwards; animation-delay: 0.3s; } 
+#graph-section div.intro .slide-box.active p { transition: all 0.5s; animation: fade-up-01 0.5s 1 forwards; animation-delay: 0.8s; } 
+#graph-section div.intro .slide-box.active a { transition: all 0.5s; animation: fade-up-01 0.5s 1 forwards; animation-delay: 1.3s; } 
+
 /* End Graph Section Style Code */
 
 /* Table Section Style Code */
@@ -43,7 +70,7 @@
 #table-section .detail-text p { color: #333; line-height: 1.4; _overflow: hidden; _white-space: nowrap; _text-overflow: ellipsis; } 
 #table-section .detail-text p a:hover { text-decoration: underline; } 
 #table-section .detail-text em { font-style: normal; font-size: 12px; } 
-#table-section .each-contents .each-btns button { width: 25%; display: block; border: 1px solid #fff; background: #ff9062; color: #fff; font-weight: 400; padding: 10px 0; border-radius: 10px; } 
+#table-section .each-contents .each-btns button { width: 25%; display: block; border: 1px solid #fff; background: #ff9062; color: #fff; font-weight: 400; padding: 10px 0; border-radius: 10px; cursor: pointer; } 
 #table-section .each-contents .each-btns button.active { color: #333; background: #fff; border: 1px solid #ff9062; } 
 #table-section .each-contents .update-details li i { color: #ff9062; } 
 /* End Table Section Style Code */
