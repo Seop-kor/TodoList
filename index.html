@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Plugin CSS link -->
   <link rel="stylesheet" href="/todo/lib/css/lightslider.css">
+  <link rel="stylesheet" href="/todo/lib/css/piechart.css">
   <!-- Reset CSS Link -->
   <link rel="stylesheet" href="/todo/css/reset.css">
   <!-- Main CSS LINK -->
@@ -29,7 +30,7 @@
     <div class="dashboard">
       <!-- Navigation Section -->
       <nav id="gnb">
-        <h2><a href="#"></a></h2>
+        <h2><a href="#"><i class="logo-font">&#1330;</i></a></h2>
         <ul>
           <li><a href="#"><i class="fa fa-trello"></i></a></li>
           <li><a href="#"><i class="fa fa-pencil"></i></a></li>
@@ -76,10 +77,26 @@
               <h3>Each Portfolio Process Rate</h3>
             </div>
             <div class="each-graph">
-              <div class="db"></div>
-              <div class="api"></div>
-              <div class="renewal"></div>
-              <div class="planning"></div>
+              <div class="db">
+                <span class="chart" data-percent="75">
+                  <span class="percent"></span>
+                </span>
+              </div>
+              <div class="api">
+                <span class="chart" data-percent="60">
+                  <span class="percent"></span>
+                </span>
+              </div>
+              <div class="renewal">
+                <span class="chart" data-percent="46">
+                  <span class="percent"></span>
+                </span>
+              </div>
+              <div class="planning">
+                <span class="chart" data-percent="89">
+                  <span class="percent"></span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -150,6 +167,7 @@
       </section>
     </div>
   </div>
+  <script src="/todo/lib/js/easypiechart.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="/todo/lib/js/lightslider.min.js"></script>
   <script src="/todo/js/main.js"></script>
@@ -162,7 +180,8 @@
         slideMargin: 0,
         speed: 500,
         auto: true,
-        pause: 7000
+        pause: 7000,
+        mode: 'fade',
       }); 
     });
   </script>

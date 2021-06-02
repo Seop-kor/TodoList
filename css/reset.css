@@ -1,3 +1,11 @@
+@font-face{
+  font-family: 'todo-logo-for-lecture'; 
+  src: url('/todo/lib/font/todo-logo-for-lecture-Regular.eot') format('embedded-opentype'), 
+  url('/todo/lib/font/todo-logo-for-lecture-Regular.woff2') format('woff2'), 
+  url('/todo/lib/font/todo-logo-for-lecture-Regular.woff') format('woff'), 
+  url('/todo/lib/font/todo-logo-for-lecture-Regular.ttf') format('truetype');
+}
+
 /* Reset CSS code */
 * {margin: 0; padding: 0; box-sizing: border-box;}
 a {text-decoration: none; color: #333;}
