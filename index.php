@@ -112,11 +112,13 @@
           <div class="total-chart">
             <span class="chart" data-percent="89">
               <span class="percent"></span>
-              <h3>Total Process Rate</h3>
+              <!-- <h3>Total Process Rate</h3> -->
             </span>
           </div>
           <div class="total-txt">
-
+            <h3>Total Process Rate</h3>
+            <p>Your process rate is very low...<br> Plz Hurry Up!!!!!</p>
+            <button>Update Rate</button>
           </div>
         </div>
       </section>
@@ -192,19 +194,6 @@
   <script src="/todo/lib/js/lightslider.min.js"></script>
   <!-- Main JS Load -->
   <script src="/todo/js/main.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $(".intro").lightSlider({
-        item: 1,
-        pager: false,
-        loop: true,
-        slideMargin: 0,
-        speed: 500,
-        auto: true,
-        pause: 7000,
-        mode: 'fade',
-      }); 
-    });
-  </script>
+  <script src="/todo/js/main_jquery.js"></script>
 </body>
 </html>
