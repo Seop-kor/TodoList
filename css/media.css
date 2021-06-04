@@ -14,8 +14,12 @@
  #graph-section > div.each-pofol { height: 26.33%; } 
  #graph-section > div.total-pofol { height: 40.33%; } 
 
- .chart {width: 100%; height: 100%;}
- .chart canvas {width: 85%!important; height: auto !important; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+ #graph-section .each-pofol .each-graph div { min-height: auto; } 
+ #graph-section .each-pofol .each-graph b { display: none; } 
+ #graph-section .each-pofol .each-graph i { display: block; } 
+
+ .chart { width: 100%; height: 100%; } 
+ .chart canvas { width: 85%!important; _height: auto!important; top: 50%; left: 50%; transform: translate(-50%, -50%); } 
  }
 
 @media screen and (max-width: 768px){
@@ -34,21 +38,21 @@
  /* Table Section Area Style Code */
  #table-section { width: 100%; height: auto; margin-top: 10px; } 
 
- .chart {width: 100%; height: 100%;}
- .chart canvas {width: auto!important; height: 90%!important; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+ .chart { width: 100%; height: 100%; } 
+ .chart canvas { width: auto!important; height: 75%!important; top: 50%; left: 50%; transform: translate(-50%, -50%); } 
  }
 
 @media screen and (max-width: 400px){
  #gnb ul { display: none; } 
- #gnb h2 a { width: 20px; height: 20px; }
- #gnb h2 .logo-font {font-size: 50px;} 
+ #gnb h2 a { width: 20px; height: 20px; } 
+ #gnb h2 .logo-font { font-size: 50px; } 
  #gnb .sign-out { display: none; } 
  #gnb .mobile-menu { display: block; } 
 
  #graph-section div.intro .slide-box { padding: 20px 50px; align-items: center; text-align: center; } 
  #graph-section div.intro h2 { font-size: 18px; } 
  #graph-section div.intro p { display: none; } 
- /* #graph-section div.intro a { }  */
+ /* #graph-section div.intro a { } */
  #graph-section .each-pofol .each-graph { flex-wrap: wrap; } 
  #graph-section .each-pofol .each-graph div { width: calc(50% - 5px); margin-top: 10px; } 
  }

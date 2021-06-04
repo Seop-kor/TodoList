@@ -13,37 +13,58 @@ mobileMenu.addEventListener('click', () => {
 });
 
 /* each-graph Function */
-// let chart = window.chart = new EasyPieChart(document.querySelector('.chart'), {
-//   easing: 'easeOutElastic',
-//   delay: 3000,
-//   barColor: '#69c',
-//   trackColor: '#ace',
-//   scaleColor: false,
-//   lineWidth: 13,
-//   trackWidth: 10,
-//   lineCap: 'butt',
-//   onStep: function(from, to, percent) {
-//     this.el.children[0].innerHTML = Math.round(percent);
-//   }
-// });
-function makeChart(sel, barColor, trackColor){
-  return new EasyPieChart(document.querySelector(sel + " .chart"), {
-    easing: 'easeOutElastic',
-    delay: 3000,
-    barColor: barColor,
-    trackColor: trackColor,
-    scaleColor: false,
-    lineWidth: 10,
-    trackWidth: 8,
-    lineCap: 'round',
-    size: 180,
-    onStep: function(from, to, percent) {
-      this.el.children[0].innerHTML = Math.round(percent);
-    }
-  }); 
+let lWidth = 10;
+let tWidth = 8;
+const winWidth = window.innerWidth;
+
+
+if(winWidth <= 950){
+  lWidth = 5;
+  tWidth = 4;
+}else {
+  lWidth = 10;
+  tWidth = 8;
 }
 
-makeChart(".db", "#7c41f5", "#d4c4f5");
-makeChart(".api", "#ff9062", "#ffdbcc");
-makeChart(".renewal", "#3acbe8", "#bae0e8");
-makeChart(".planning", "#f541da", "#f0c4f5");
+
+let chart = window.chart = new EasyPieChart(document.querySelector('.total-chart .chart'), {
+  easing: 'easeOutElastic',
+  delay: 3000,
+  barColor: '#7c41f5',
+  trackColor: '#d4c4f5',
+  scaleColor: false,
+  lineWidth: 18,
+  trackWidth: 18,
+  lineCap: 'butt',
+  size: 200,
+  onStep: function(from, to, percent) {
+    this.el.children[0].innerHTML = Math.round(percent);
+  }
+});
+
+const poData = [
+  {sel: '.db' , barColor: "#7c41f5", trackColor: "#d4c4f5"},
+  {sel: '.api' , barColor: "#ff9062", trackColor: "#ffdbcc"},
+  {sel: '.renewal' , barColor: "#3acbe8", trackColor: "#bae0e8"},
+  {sel: '.planning' , barColor: "#f541da", trackColor: "#f0c4f5"}
+  // {sel: '.total-chart', barColor: "#f541da", trackColor: "#f0c4f5"}
+];
+
+function makeChart(){
+  poData.map((item) => {
+    return new EasyPieChart(document.querySelector(item.sel + " .chart"), {
+      easing: 'easeOutElastic',
+      delay: 3000,
+      barColor: item.barColor,
+      trackColor: item.trackColor,
+      scaleColor: false,
+      lineWidth: lWidth,
+      trackWidth: tWidth,
+      lineCap: 'round',
+      onStep: function(from, to, percent) {
+        this.el.children[0].innerHTML = Math.round(percent);
+      }
+    }); 
+  });
+}
+makeChart();

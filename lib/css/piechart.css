@@ -1,8 +1,11 @@
 .chart {
   position: relative;
-  display: inline-block;
-  width: 110px;
-  height: 110px;
+  _display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 90px;
   text-align: center;
 }
 .chart canvas {
@@ -12,9 +15,10 @@
   width: 100%!important;
 }
 .percent {
-  _display: inline-block;
-  line-height: 110px;
+  display: inline-block;
+  _line-height: 110px;
   z-index: 2;
+  display: flex;
 }
 .percent:after {
   content: '%';

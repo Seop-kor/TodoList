@@ -81,26 +81,44 @@
                 <span class="chart" data-percent="75">
                   <span class="percent"></span>
                 </span>
+                <b>DB Project</b>
+                <i class="fa fa-database"></i>
               </div>
               <div class="api">
                 <span class="chart" data-percent="60">
                   <span class="percent"></span>
                 </span>
+                <b>API Project</b>
+                <i class="fa fa-thermometer-half"></i>
               </div>
               <div class="renewal">
                 <span class="chart" data-percent="46">
                   <span class="percent"></span>
                 </span>
+                <b>Renewal Project</b>
+                <i class="fa fa-clone"></i>
               </div>
               <div class="planning">
                 <span class="chart" data-percent="89">
                   <span class="percent"></span>
                 </span>
+                <b>Planning Project</b>
+                <i class="fa fa-bar-chart-o"></i>
               </div>
             </div>
           </div>
         </div>
-        <div class="total-pofol"></div>
+        <div class="total-pofol">
+          <div class="total-chart">
+            <span class="chart" data-percent="89">
+              <span class="percent"></span>
+              <h3>Total Process Rate</h3>
+            </span>
+          </div>
+          <div class="total-txt">
+
+          </div>
+        </div>
       </section>
       <!-- Table Section Area -->
       <section id="table-section">
@@ -168,8 +186,11 @@
     </div>
   </div>
   <script src="/todo/lib/js/easypiechart.js"></script>
+  <!-- Jquery Framework Load -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Plugins Load -->
   <script src="/todo/lib/js/lightslider.min.js"></script>
+  <!-- Main JS Load -->
   <script src="/todo/js/main.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
