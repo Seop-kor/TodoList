@@ -28,12 +28,12 @@
   <div class="wrapper">
     <!-- Main Dash Board Frame -->
     <div class="dashboard">
-      <!-- Navigation Section -->
+      <!-- Navigation Section 
       <nav id="gnb">
         <h2><a href="#"><i class="logo-font">&#1330;</i></a></h2>
         <ul>
           <li><a href="#"><i class="fa fa-trello"></i></a></li>
-          <li><a href="#"><i class="fa fa-pencil"></i></a></li>
+          <li><a href="/todo/pages/sp_insert.php"><i class="fa fa-pencil"></i></a></li>
           <li><a href="#"><i class="fa fa-search"></i></a></li>
         </ul>
         <a href="#" class="sign-out"><i class="fa fa-sign-out"></i></a>
@@ -43,6 +43,10 @@
           <span></span>
         </div>
       </nav>
+      -->
+      <?php
+      include $_SERVER['DOCUMENT_ROOT']."/todo/include/navigation.php";
+      ?>
       <!-- Graph Section Area -->
       <section id="graph-section">
         <div class="intro">
