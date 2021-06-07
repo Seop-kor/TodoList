@@ -112,83 +112,15 @@
             </div>
           </div>
         </div>
-        <div class="total-pofol">
-          <div class="total-chart">
-            <span class="chart" data-percent="89">
-              <span class="percent"></span>
-              <!-- <h3>Total Process Rate</h3> -->
-            </span>
-          </div>
-          <div class="total-txt">
-            <h3>Total Process Rate</h3>
-            <p>Your process rate is very low...<br> Plz Hurry Up!!!!!</p>
-            <button>Update Rate</button>
-          </div>
-        </div>
+        <!-- total-pofol frame -->
+        <?php
+        include $_SERVER['DOCUMENT_ROOT']."/todo/include/total_pofol.php";
+        ?>
       </section>
       <!-- Table Section Area -->
-      <section id="table-section">
-        <div class="new-update">
-          <div class="new-update-title">
-            <p>Recent Update</p>
-            <a href="#">More</a>
-          </div>
-          <ul class="update-details">
-            <li>
-              <i class="fa fa-database"></i>
-              <div class="detail-text">
-                <p><a href="#">데이터 베이스 테이블 설계 완료</a></p>
-                <em>2021-05-31</em>
-              </div>
-            </li>
-            <li>
-              <i class="fa fa-database"></i>
-              <div class="detail-text">
-                <p><a href="#">데이터 베이스 테이블 설계 완료</a></p>
-                <em>2021-05-31</em>
-              </div>
-            </li>
-            <li>
-              <i class="fa fa-database"></i>
-              <div class="detail-text">
-                <p><a href="#">데이터 베이스 테이블 설계 완료</a></p>
-                <em>2021-05-31</em>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="each-contents">
-          <div class="each-btns">
-            <button class="active">Database</button>
-            <button>API</button>
-            <button>Renewal</button>
-            <button>Planning</button>
-          </div>
-          <ul class="update-details">
-            <li>
-              <i class="fa fa-database"></i>
-              <div class="detail-text">
-                <p><a href="#">데이터 베이스 테이블 설계 완료</a></p>
-                <em>2021-05-31</em>
-              </div>
-            </li>
-            <li>
-              <i class="fa fa-database"></i>
-              <div class="detail-text">
-                <p><a href="#">데이터 베이스 테이블 설계 완료</a></p>
-                <em>2021-05-31</em>
-              </div>
-            </li>
-            <li>
-              <i class="fa fa-database"></i>
-              <div class="detail-text">
-                <p><a href="#">데이터 베이스 테이블 설계 완료</a></p>
-                <em>2021-05-31</em>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <?php
+      include $_SERVER['DOCUMENT_ROOT']."/todo/include/table_section.php";
+      ?>
     </div>
   </div>
   <script src="/todo/lib/js/easypiechart.js"></script>
