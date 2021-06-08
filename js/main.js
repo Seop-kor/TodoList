@@ -1,14 +1,14 @@
 // Contents Text Slice
 const detailText = document.querySelectorAll(".detail-text p a");
 detailText.forEach((item) => {
-  if(item.textContent.length > 20){
+  if (item.textContent.length > 20) {
     item.textContent = item.textContent.slice(0, 20) + "...";
   }
 });
 
 // Mobile Menu Rotate
 const mobileMenu = document.querySelector(".mobile-menu");
-mobileMenu.addEventListener('click', () => {
+mobileMenu.addEventListener("click", () => {
   mobileMenu.classList.toggle("active");
 });
 
@@ -22,174 +22,235 @@ let clearSet;
 let eachClearSet;
 
 // 밑에 total 원이 여기임
-if(winWidth <= 400){
+if (winWidth <= 400) {
   pieSize = 130;
-}else if(winWidth <= 950 && winWidth > 768){
+} else if (winWidth <= 950 && winWidth > 768) {
   pieSize = 150;
-}else if(winWidth <= 1280) {
+} else if (winWidth <= 1280) {
   pieSize = 170;
-}else {
+} else {
   pieSize = 200;
 }
 
-let chart = window.chart = new EasyPieChart(document.querySelector('.total-chart .chart'), {
-  easing: 'easeOutElastic',
-  delay: 3000,
-  barColor: '#7c41f5',
-  trackColor: '#d4c4f5',
-  scaleColor: false,
-  lineWidth: 18,
-  trackWidth: 18,
-  lineCap: 'butt',
-  size: pieSize,
-  onStep: function(from, to, percent) {
-    this.el.children[0].innerHTML = Math.round(percent);
-  }
-});
-
-// let que = [];
-
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   const reWinWidth = window.innerWidth;
-  // if(reWinWidth <= 1280){
-  //   // que.unshift(150);
-  //   pieSize = 180;
-  // }else {
-  //   // que.unshift(200);
-  //   pieSize = 200;
-  // }
-  if(reWinWidth <= 400){
+  if (reWinWidth <= 400) {
     pieSize = 130;
-  }else if(reWinWidth <= 950 && reWinWidth > 768){
+  } else if (reWinWidth <= 950 && reWinWidth > 768) {
     pieSize = 150;
-  }else if(reWinWidth <= 1280) {
+  } else if (reWinWidth <= 1280) {
     pieSize = 170;
-  }else {
+  } else {
     pieSize = 200;
   }
 
   clearTimeout(clearSet); //멈추면 실행 멈춰!! 멈멈춰춰!!!
-  clearSet = setTimeout(function() {
+  clearSet = setTimeout(function () {
     document.querySelector(".total-chart .chart").style.height = pieSize;
     document.querySelector(".total-chart .chart canvas").remove();
-    new EasyPieChart(document.querySelector('.total-chart .chart'), {
-      easing: 'easeOutElastic',
+    new EasyPieChart(document.querySelector(".total-chart .chart"), {
+      easing: "easeOutElastic",
       delay: 3000,
-      barColor: '#7c41f5',
-      trackColor: '#d4c4f5',
+      barColor: "#7c41f5",
+      trackColor: "#d4c4f5",
       scaleColor: false,
       lineWidth: 18,
       trackWidth: 18,
-      lineCap: 'butt',
+      lineCap: "butt",
       size: pieSize,
-      onStep: function(from, to, percent) {
+      onStep: function (from, to, percent) {
         this.el.children[0].innerHTML = Math.round(percent);
-      }
+      },
     });
   }, 150);
-  // if(que[0] === que[1]){
-  //   return;
-  // }
-  // document.querySelector(".total-chart .chart canvas").remove();
-  // let chart = window.chart = new EasyPieChart(document.querySelector('.total-chart .chart'), {
-  //   easing: 'easeOutElastic',
-  //   delay: 3000,
-  //   barColor: '#7c41f5',
-  //   trackColor: '#d4c4f5',
-  //   scaleColor: false,
-  //   lineWidth: 18,
-  //   trackWidth: 18,
-  //   lineCap: 'butt',
-  //   size: que[0],
-  //   onStep: function(from, to, percent) {
-  //     this.el.children[0].innerHTML = Math.round(percent);
-  //   }
-  // });
 });
 
 // each 그래프부분이 여기임.
-if(winWidth <= 950){
+if (winWidth <= 950) {
   lWidth = 5;
   tWidth = 4;
-}else {
+} else {
   lWidth = 10;
   tWidth = 8;
 }
 
-if(winWidth <= 950){
+if (winWidth <= 950) {
   eachPieSize = 80;
-}
-else if(winWidth <= 1280){
+} else if (winWidth <= 1280) {
   eachPieSize = 90;
-}else {
+} else {
   eachPieSize = 110;
 }
 
 const poData = [
-  {sel: '.db' , barColor: "#7c41f5", trackColor: "#d4c4f5"},
-  {sel: '.api' , barColor: "#ff9062", trackColor: "#ffdbcc"},
-  {sel: '.renewal' , barColor: "#3acbe8", trackColor: "#bae0e8"},
-  {sel: '.planning' , barColor: "#f541da", trackColor: "#f0c4f5"}
-  // {sel: '.total-chart', barColor: "#f541da", trackColor: "#f0c4f5"}
+  { sel: ".db", barColor: "#7c41f5", trackColor: "#d4c4f5" },
+  { sel: ".api", barColor: "#ff9062", trackColor: "#ffdbcc" },
+  { sel: ".renewal", barColor: "#3acbe8", trackColor: "#bae0e8" },
+  { sel: ".planning", barColor: "#f541da", trackColor: "#f0c4f5" }
 ];
 
-function makeChart(){
+function pieChartXmlResponse() {
+  const filexml = new XMLHttpRequest();
+  filexml.open("GET", "/todo/data/tp_rate.json",false);
+  filexml.send();
+  const json = JSON.parse(filexml.responseText);
+  const charts = document.querySelectorAll(".each-graph .chart");
+  const modalValue = document.querySelectorAll(".rate-form input");
+  charts[0].dataset.percent = json[0].db_rate;
+  charts[1].dataset.percent = json[0].api_rate;
+  charts[2].dataset.percent = json[0].renew_rate;
+  charts[3].dataset.percent = json[0].plan_rate;
+  modalValue[0].value = json[0].db_rate;
+  modalValue[1].value = json[0].api_rate;
+  modalValue[2].value = json[0].renew_rate;
+  modalValue[3].value = json[0].plan_rate;
+  document.querySelector(".total-chart .chart canvas") && document.querySelector(".total-chart .chart canvas").remove();
+  new EasyPieChart(document.querySelector(".total-chart .chart"), {
+    easing: "easeOutElastic",
+    delay: 3000,
+    barColor: "#7c41f5",
+    trackColor: "#d4c4f5",
+    scaleColor: false,
+    lineWidth: 18,
+    trackWidth: 18,
+    lineCap: "butt",
+    size: pieSize,
+    onStep: function (from, to, percent) {
+      this.el.children[0].innerHTML = Math.round(percent);
+    },
+  });
+  document.querySelectorAll(".each-graph > div .chart canvas").forEach((item) => item.remove());
   poData.map((item) => {
     return new EasyPieChart(document.querySelector(item.sel + " .chart"), {
-      easing: 'easeOutElastic',
+      easing: "easeOutElastic",
       delay: 3000,
       barColor: item.barColor,
       trackColor: item.trackColor,
       scaleColor: false,
       lineWidth: lWidth,
       trackWidth: tWidth,
-      lineCap: 'round',
+      lineCap: "round",
       size: eachPieSize,
-      onStep: function(from, to, percent) {
+      onStep: function (from, to, percent) {
         this.el.children[0].innerHTML = Math.round(percent);
-      }
+      },
     });
   });
 }
-makeChart();
 
-window.addEventListener('resize', () => {
+const pieChartXml = new XMLHttpRequest();
+pieChartXml.addEventListener("load", pieChartXmlResponse);
+pieChartXml.open("GET", "http://localhost/todo/php/sp_easypiechart_action.php");
+pieChartXml.send();
+
+window.addEventListener("resize", () => {
   const reWinWidth = window.innerWidth;
-  if(reWinWidth <= 950){
+  if (reWinWidth <= 950) {
     lWidth = 5;
     tWidth = 4;
-  }else {
+  } else {
     lWidth = 10;
     tWidth = 8;
   }
 
-  if(reWinWidth <= 950){
+  if (reWinWidth <= 950) {
     eachPieSize = 80;
-  }
-  else if(reWinWidth <= 1280){
+  } else if (reWinWidth <= 1280) {
     eachPieSize = 90;
-  }else {
+  } else {
     eachPieSize = 110;
   }
 
   clearTimeout(eachClearSet); //멈추면 실행 멈춰!! 멈멈춰춰!!!
-  eachClearSet = setTimeout(function() {
-    document.querySelectorAll(".each-graph > div .chart canvas").forEach(item => item.remove());
+  eachClearSet = setTimeout(function () {
+    document
+      .querySelectorAll(".each-graph > div .chart canvas")
+      .forEach((item) => item.remove());
     poData.map((item) => {
       return new EasyPieChart(document.querySelector(item.sel + " .chart"), {
-        easing: 'easeOutElastic',
+        easing: "easeOutElastic",
         delay: 3000,
         barColor: item.barColor,
         trackColor: item.trackColor,
         scaleColor: false,
         lineWidth: lWidth,
         trackWidth: tWidth,
-        lineCap: 'round',
+        lineCap: "round",
         size: eachPieSize,
-        onStep: function(from, to, percent) {
+        onStep: function (from, to, percent) {
           this.el.children[0].innerHTML = Math.round(percent);
-        }
+        },
       });
     });
   }, 150);
+});
+
+
+// Each-btns button JS
+const btns = document.querySelectorAll(".each-btns button");
+function xmlreq() {
+  document.querySelector(".each-contents .update-details").innerHTML =
+    this.responseText;
+}
+const xmlr = new XMLHttpRequest();
+xmlr.addEventListener("load", xmlreq);
+xmlr.open(
+  "GET",
+  "http://localhost/todo/php/sp_database_categori_action.php?categori=database"
+);
+xmlr.send();
+btns.forEach(function (item) {
+  item.addEventListener("click", function (e) {
+    const categori = e.target.dataset.categori;
+    const xmlr = new XMLHttpRequest();
+    xmlr.addEventListener("load", xmlreq);
+    xmlr.open(
+      "GET",
+      "http://localhost/todo/php/sp_database_categori_action.php?categori=" +
+        categori
+    );
+    xmlr.send();
+  });
+});
+
+// Modal Js
+const modalSendBtn = document.querySelector(".modal-send-btn");
+
+function modalOpen() {
+  document.querySelector(".total-modal-wrapper").style.display = "flex";
+}
+function modalClose() {
+  document.querySelector(".total-modal-wrapper").style.display = "none";
+}
+
+window.onclick = (e) => {
+  const total = document.querySelector(".total-modal-wrapper");
+  if (e.target === total) {
+    total.style.display = "none";
+  }
+};
+
+modalSendBtn.addEventListener("click", () => {
+  const doc = document.rateForm;
+  if (!doc.db_pro.value) {
+    alert("값을 입력해주세요.");
+    doc.db_pro.focus();
+    return;
+  }
+  if (!doc.api_pro.value) {
+    alert("값을 입력해주세요.");
+    doc.api_pro.focus();
+    return;
+  }
+  if (!doc.renewal_pro.value) {
+    alert("값을 입력해주세요.");
+    doc.renewal_pro.focus();
+    return;
+  }
+  if (!doc.planning_pro.value) {
+    alert("값을 입력해주세요.");
+    doc.planning_pro.focus();
+    return;
+  }
+  doc.submit();
 });

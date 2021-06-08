@@ -9,4 +9,8 @@
   $sql = "insert into tp_table(TP_categori, TP_title, TP_content, TP_reg) values ('$categori', '$title', '$content', '$reg')";
 
   mysqli_query($dbcon,$sql);
+  echo "<script>
+  alert('입력 되었습니다.');
+  location.href='/todo/pages/sp_insert_form.php';
+  </script>";
 ?>

@@ -23,6 +23,12 @@
   <!-- Animation CSS Link -->
   <link rel="stylesheet" href="/todo/css/media.css">
   <title>TODO Process</title>
+
+  <script defer>
+    const hostname = window.location.hostname;
+    //여기서 나눠줌. 예를 들어.
+    //hostname이 어디어디이면 거기에 get파라미터를 더 붙여서 보낸다거나 그런 느낌으로
+  </script>
 </head>
 <body>
   <div class="wrapper">

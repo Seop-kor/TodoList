@@ -74,7 +74,8 @@
   <!-- Plugins Load -->
   <script src="/todo/lib/js/lightslider.min.js"></script>
   <!-- Main JS Load -->
-  <script src="/todo/js/main.js"></script>
+  <!-- <script src="/todo/js/main.js"></script> -->
+  <script src="/todo/js/insert_form.js"></script>
   <script src="/todo/js/main_jquery.js"></script>
   <script>
     function tpInsert(){
