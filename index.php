@@ -87,7 +87,7 @@
               <h3>Each Portfolio Process Rate</h3>
             </div>
             <div class="each-graph">
-              <div class="db">
+              <!-- <div class="db">
                 <span class="chart" data-percent="75">
                   <span class="percent"></span>
                 </span>
@@ -114,7 +114,7 @@
                 </span>
                 <b>Planning Project</b>
                 <i class="fa fa-bar-chart-o"></i>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
