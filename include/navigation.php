@@ -5,7 +5,7 @@
     <ul>
       <li><a href="/todo/index.php"><i class="fa fa-trello"></i></a></li>
       <li><a href="/todo/pages/sp_insert_form.php"><i class="fa fa-pencil"></i></a></li>
-      <li><a href="#"><i class="fa fa-search"></i></a></li>
+      <li><a href="/todo/pages/sp_detail_form.php"><i class="fa fa-search"></i></a></li>
     </ul>
     <a href="#" class="sign-out"><i class="fa fa-sign-out"></i></a>
     <div class="mobile-menu">

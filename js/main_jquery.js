@@ -10,8 +10,11 @@ $(document).ready(function () {
     mode: "fade",
   });
   $(".each-btns button").on("click", function () {
-    const idx = $(this).index();
     $(".each-btns button").removeClass("active");
+    $(this).addClass("active");
+  });
+  $(".board-btns button").on('click', function() {
+    $(".board-btns button").removeClass("active");
     $(this).addClass("active");
   });
 });
