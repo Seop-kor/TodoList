@@ -12,22 +12,17 @@ $reslutdb = mysqli_query($dbcon, $sql);
 if (mysqli_num_rows($reslutdb) == 0) {
   echo "<li><p>입력된 일정이 없습니다.</p></li>";
 } else {
-  $text = "";
+  $arr = array();
   while ($row = mysqli_fetch_array($reslutdb)) {
-    $idx = $row['TP_idx'];
-    $categori = $row['TP_categori'];
-    $title = $row['TP_title'];
-    $content = $row['TP_content'];
-    $reg = $row['TP_reg'];
-
-    $text = $text."<li>
-                <i class='fa fa-$categori'></i>
-                <div class='detail-text'>
-                  <p><a href='#'>$title</a></p>
-                  <em>$reg</em>
-                </div>
-              </li>";
+    array_push($arr, array(
+      "tp_idx" => $row['TP_idx'],
+      "tp_categori" => $row['TP_categori'],
+      "tp_title" => $row['TP_title'],
+      "tp_content" => $row['TP_content'],
+      "tp_reg" => $row['TP_reg']
+    ));
   }
-  echo $text;
+  echo json_encode($arr, JSON_UNESCAPED_UNICODE);
+  // file_put_contents($_SERVER['DOCUMENT_ROOT']."/todo/data/tp_table.json", json_encode($arr, JSON_UNESCAPED_UNICODE));
 }
 ?>

@@ -175,4 +175,4 @@
 .board-table li span:nth-child(3) { width: 40%; } 
 .board-table li span:nth-child(4) { width: 20%; } 
 .board-table li span:nth-child(5) { width: 10%; } 
-.board-table li.board-contents:nth-child(2n) { background: #f7f7f7; } 
+.board-table li.board-contents:nth-child(2n-1) { background: #f7f7f7; } 

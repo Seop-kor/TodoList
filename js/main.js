@@ -227,8 +227,20 @@ window.addEventListener("resize", () => {
 // Each-btns button JS
 const btns = document.querySelectorAll(".each-btns button");
 function xmlreq() {
-  document.querySelector(".each-contents .update-details").innerHTML =
-    this.responseText;
+  const json = JSON.parse(this.responseText);
+  let text = "";
+  json.forEach((item) => {
+    text += `
+    <li>
+      <i class='fa fa-${item.tp_categori}'></i>
+      <div class='detail-text'>
+        <p><a href='#'>${item.tp_title}</a></p>
+        <em>${item.tp_reg}</em>
+      </div>
+    </li>
+    `;
+  });
+  document.querySelector(".each-contents .update-details").innerHTML = text;
 }
 const xmlr = new XMLHttpRequest();
 xmlr.addEventListener("load", xmlreq);
