@@ -16,7 +16,7 @@
 }
 .percent {
   display: inline-block;
-  _line-height: 110px;
+  line-height: 0;
   z-index: 2;
   display: flex;
 }

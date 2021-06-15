@@ -1,27 +1,7 @@
-.wrap {
-  width: 300px;
-  height: 200px;
-  position: relative;
-  background: yellow;
-  overflow: hidden;
-}
-.wrap .box-wrapper {
-  width: 1200px;
-  height: 200px;
-  display: flex;
-  position: absolute;
-  left: 0;
-}
-.wrap .box-wrapper > div {
-  width: 25%;
-  height: 100%;
-}
-.wrap .box-wrapper .first {
-  background: tomato;
-}
-.wrap .box-wrapper .second {
-  background: magenta;
-}
-.wrap .box-wrapper .third {
-  background: cyan;
-}
+body { height: 3000px; background: tomato; } 
+body > div {height: 500px;}
+header { width: 100%; display: flex; justify-content: space-between; position: sticky; top: 0; left: 0; } 
+header h3 { padding: 20px 10px; } 
+header nav { width: 30%; } 
+header nav ul { display: flex; width: 100%; } 
+header nav ul li { width: 33.33%; } 

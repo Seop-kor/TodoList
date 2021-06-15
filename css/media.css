@@ -9,6 +9,7 @@
  /* Table Section Area Style Code */
  #table-section { width: 40%; height: calc(90% - 10px); margin-top: 10px; } 
  #graph-section .input-box .content-input textarea { height: 200px; } 
+ #graph-section.detail-section { width: 100%; }
  }
 
 @media screen and (max-width: 950px){

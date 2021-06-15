@@ -24,6 +24,10 @@
   <!-- Animation CSS Link -->
   <link rel="stylesheet" href="/todo/css/media.css">
   <title>TODO Process</title>
+  <script>
+    const path = window.location;
+    console.log(path);
+  </script>
 </head>
 
 <body>
@@ -50,12 +54,14 @@
         </div>
         <div class="detail-board">
           <div class="board-btns">
-            <button type="button" class="active" data-categori="All">All</button>
-            <button type="button" data-categori="DB Project">Database</button>
-            <button type="button" data-categori="API Project">API</button>
-            <button type="button" data-categori="Renewal Project">Renewal</button>
-            <button type="button" data-categori="Planning Project">Planning</button>
+            <a href="?" href=".board-table">All</a>
+            <a href="?categori=database">Database</a>
+            <a href="?categori=thermometer-half">API</a>
+            <a href="?categori=clone">Renewal</a>
+            <a href="?categori=bar-chart-o">Planning</a>
           </div>
+
+          <!-- Board-Table Start -->
           <div class="board-table">
             <ul>
               <li class="board-title">
@@ -66,49 +72,27 @@
                 <span>삭제</span>
               </li>
               <?php
-              include $_SERVER['DOCUMENT_ROOT'] . "/connect/connect.php";
-              $sql = "select * from tp_table order by TP_idx desc limit 5";
-              $result = mysqli_query($dbcon, $sql);
-              if(mysqli_num_rows($result) == 0){
-              ?>
-              <li>
-                <p>입력된 정보가 없습니다.</p>
-              </li>
-              <?php
-              }else{
-                while($row = mysqli_fetch_array($result)){
-                  $idx = $row['TP_idx'];
-                  $categori = $row['TP_categori'];
-                  $title = $row['TP_title'];
-                  $content = $row['TP_content'];
-                  $reg = $row['TP_reg'];
-                  switch($categori){
-                    case "database":
-                      $categori = "DB Project";
-                      break;
-                    case "thermometer-half":
-                      $categori = "API Project";
-                      break;
-                    case "clone":
-                      $categori = "Renewal Project";
-                      break;
-                    case "bar-chart-o":
-                      $categori = "Planning Project";
-                      break;
-                  }
-              ?>
-              <li class="board-contents">
-                <span><?=$idx?></span>
-                <span><?=$categori?></span>
-                <span><a href="#"><?=$title?></a></span>
-                <span><?=$reg?></span>
-                <span><a href="/todo/php/sp_delete_detail.php?idx=<?=$idx?>">삭제</a></span>
-              </li>
-              <?php
+                $categoriSel = "";
+                $sql = "select * from tp_table order by TP_idx desc";
+                if (array_key_exists("categori", $_GET)) {
+                  $categoriSel = $_GET['categori'];
+                  $sql = "select * from tp_table where TP_categori='$categoriSel' order by TP_idx desc";
                 }
-              }
+                include $_SERVER['DOCUMENT_ROOT'].'/todo/include/tabs/categori.php';
               ?>
             </ul>
+          </div>
+          <!-- Board-Table End -->
+          <div class="board-footer-btns">
+              <!-- <form action="#" class="search-box" name="serch_box">
+                <select name="" id="">
+                  <option value="">아이디</option>
+                  <option value="">제목</option>
+                </select>
+                <input type="text">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form> -->
+              <button type="button" class="more-btn">더보기</button>
           </div>
         </div>
       </section>
@@ -123,6 +107,16 @@
   <script src="/todo/js/main.js"></script>
   <!-- <script src="/todo/js/insert_form.js"></script> -->
   <script src="/todo/js/main_jquery.js"></script>
+  <script>
+    $(function(){
+      $(".board-contents").hide();
+      $(".board-contents").slice(0,5).show();
+
+      $(".more-btn").click(function(){
+        $(".board-contents:hidden").slice(0,5).show();
+      });
+    });
+  </script>
 </body>
 
 </html>
