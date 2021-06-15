@@ -8,13 +8,13 @@ let clearSet;
 let eachClearSet;
 
 // 밑에 total 원이 여기임
-if(winWidth <= 400){
+if (winWidth <= 400) {
   pieSize = 130;
-}else if(winWidth <= 950 && winWidth > 768){
+} else if (winWidth <= 950) {
   pieSize = 150;
-}else if(winWidth <= 1280) {
+} else if (winWidth <= 1280) {
   pieSize = 170;
-}else {
+} else {
   pieSize = 200;
 }
 
@@ -91,7 +91,7 @@ window.addEventListener("resize", () => {
   const reWinWidth = window.innerWidth;
   if (reWinWidth <= 400) {
     pieSize = 130;
-  } else if (reWinWidth <= 950 && reWinWidth > 768) {
+  } else if (reWinWidth <= 950) {
     pieSize = 150;
   } else if (reWinWidth <= 1280) {
     pieSize = 170;
