@@ -6,6 +6,8 @@ let pieSize = 200;
 let eachPieSize = 100;
 let clearSet;
 let eachClearSet;
+let mobileResizeWidth = document.body.clientWidth;
+let mobileResizeHeight = document.body.clientHeight;
 
 // 밑에 total 원이 여기임
 if (winWidth <= 400) {
@@ -45,15 +47,22 @@ function inner(a, b){
 }
 
 function fetchHTML(json){
-  // const charts = document.querySelectorAll(".each-graph .chart");
-  // const modalValue = document.querySelectorAll(".rate-form input");
-  const charts = document.querySelector(".each-graph");
   const modalValue = document.querySelector(".rate-form");
+  const totalChart = document.querySelector(".total-chart");
   const dbRate = Number(json.db_rate);
   const apiRate = Number(json.api_rate);
   const renewalRate = Number(json.renew_rate);
   const planningRate = Number(json.plan_rate);
   const rateAvg = (dbRate * 0.4) + (apiRate * 0.2) + (renewalRate * 0.1) + (planningRate * 0.3);
+  if(rateAvg >= 80){
+    document.querySelector(".total-txt p").innerHTML = `Your process rate is very nice!!<br>Good!! Go Home!`;
+  }else if(rateAvg >= 50){
+    document.querySelector(".total-txt p").innerHTML = `Your process rate is not bad..<br>More! More!!`;
+  }else if(rateAvg >= 20){
+    document.querySelector(".total-txt p").innerHTML = `Your process rate is very low...<br>Plz Hurry Up!!!!!`;
+  }else {
+    document.querySelector(".total-txt p").innerHTML = `Oh My god..<br>Your process rate is very very low...`;
+  }
   inner(modalValue, `<p>
   <label for="db_pro">DB Project</label>
   <input type="text" id="db_pro" value="${dbRate}" name="db_pro">
@@ -70,7 +79,9 @@ function fetchHTML(json){
   <label for="planning_pro">Planning Project</label>
   <input type="text" id="planning_pro" value="${planningRate}" name="planning_pro">
 </p>`);
-  document.querySelector(".total-chart .chart").dataset.percent = rateAvg;
+  inner(totalChart, `<span class="chart" data-percent="${rateAvg}">
+    <span class="percent"></span>
+  </span>`);
 }
 
 async function pieChartXmlResponse() {
@@ -88,6 +99,11 @@ pieChartXml.open("GET", "http://localhost/todo/php/sp_easypiechart_action.php");
 pieChartXml.send();
 
 window.addEventListener("resize", () => {
+  if(mobileResizeWidth === document.body.clientWidth && mobileResizeHeight === document.body.clientHeight){
+    return;
+  }
+  mobileResizeWidth = document.body.clientWidth;
+  mobileResizeHeight = document.body.clientHeight;
   const reWinWidth = window.innerWidth;
   if (reWinWidth <= 400) {
     pieSize = 130;

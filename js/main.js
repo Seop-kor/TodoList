@@ -20,6 +20,8 @@ let eachPieSize = 100;
 let clearSet;
 let eachClearSet;
 const winWidth = window.innerWidth;
+let mobileResizeWidth = document.body.clientWidth;
+let mobileResizeHeight = document.body.clientHeight;
 const poData = [
   { sel: ".db", barColor: "#7c41f5", trackColor: "#d4c4f5" },
   { sel: ".api", barColor: "#ff9062", trackColor: "#ffdbcc" },
@@ -86,10 +88,9 @@ function inner(a, b){
 }
 
 function fetchHTML(json){
-  // const charts = document.querySelectorAll(".each-graph .chart");
-  // const modalValue = document.querySelectorAll(".rate-form input");
   const charts = document.querySelector(".each-graph");
   const modalValue = document.querySelector(".rate-form");
+  const totalChart = document.querySelector(".total-chart");
   const dbRate = Number(json.db_rate);
   const apiRate = Number(json.api_rate);
   const renewalRate = Number(json.renew_rate);
@@ -148,23 +149,16 @@ function fetchHTML(json){
   <label for="planning_pro">Planning Project</label>
   <input type="text" id="planning_pro" value="${planningRate}" name="planning_pro">
 </p>`);
-  document.querySelector(".total-chart .chart").dataset.percent = rateAvg;
+  inner(totalChart, `<span class="chart" data-percent="${rateAvg}">
+    <span class="percent"></span>
+  </span>`);
 }
 
 async function pieChartXmlResponse() {
   const filexml = new XMLHttpRequest();
-  // filexml.open("GET", "/todo/data/tp_rate.json",false);
   filexml.open("GET", "/todo/php/read_json.php",false);
   filexml.send();
   const json = JSON.parse(filexml.responseText);
-  // charts[0].dataset.percent = json[0].db_rate;
-  // charts[1].dataset.percent = json[0].api_rate;
-  // charts[2].dataset.percent = json[0].renew_rate;
-  // charts[3].dataset.percent = json[0].plan_rate;
-  // modalValue[0].value = json[0].db_rate;
-  // modalValue[1].value = json[0].api_rate;
-  // modalValue[2].value = json[0].renew_rate;
-  // modalValue[3].value = json[0].plan_rate;
   await fetchHTML(json[0]);
   startPie();
 }
@@ -175,6 +169,11 @@ pieChartXml.open("GET", "http://localhost/todo/php/sp_easypiechart_action.php");
 pieChartXml.send();
 
 window.addEventListener("resize", () => {
+  if(mobileResizeWidth === document.body.clientWidth && mobileResizeHeight === document.body.clientHeight){
+    return;
+  }
+  mobileResizeWidth = document.body.clientWidth;
+  mobileResizeHeight = document.body.clientHeight;
   const reWinWidth = window.innerWidth;
   if (reWinWidth <= 400) {
     pieSize = 130;
@@ -188,13 +187,17 @@ window.addEventListener("resize", () => {
 
   clearTimeout(clearSet); //멈추면 실행 멈춰!! 멈멈춰춰!!!
   clearSet = setTimeout(function () {
-    // document.querySelector(".total-chart .chart").style.height = pieSize;
     document.querySelector(".total-chart .chart canvas").remove();
     makechart({sel: ".total-chart", barColor: "#7c41f5", trackColor: "#d4c4f5"}, 18, 18, pieSize);
   }, 150);
 });
 
 window.addEventListener("resize", () => {
+  if(mobileResizeWidth === document.body.clientWidth && mobileResizeHeight === document.body.clientHeight){
+    return;
+  }
+  mobileResizeWidth = document.body.clientWidth;
+  mobileResizeHeight = document.body.clientHeight;
   const reWinWidth = window.innerWidth;
   if (reWinWidth <= 950) {
     lWidth = 5;
