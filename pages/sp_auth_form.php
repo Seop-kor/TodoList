@@ -25,12 +25,12 @@
 <body>
   <div class="wrapper">
     <div class="auth">
-      <form action="/todo/php/sp_auth.php" method="post">
+      <form action="/todo/php/sp_auth.php" method="post" name="auth_form" id="auth-form">
         <label for="authpass">
           <p>인증키 입력 : </p>
         </label>
         <input type="password" id="authpass" name="auth">
-        <button type="submit">입력</button>
+        <button type="button">입력</button>
       </form>
     </div>
   </div>
@@ -38,11 +38,20 @@
     document.querySelector("#authpass").addEventListener('keydown', function(e){
       if(e.key == "Enter"){
         if(!document.querySelector("#authpass").value){
-          e.preventDefault();
           alert("비밀번호를 입력해주세요.");
           document.querySelector("#authpass").focus();
+          return;
         }
+        document.auth_form.submit();
       }
+    });
+    document.querySelector("#auth-form button").addEventListener("click", function(){
+      if(!document.querySelector("#authpass").value){
+        alert("비밀번호를 입력해주세요.");
+        document.querySelector("#authpass").focus();
+        return;
+      }
+      document.auth_form.submit();
     });
   </script>
 </body>
