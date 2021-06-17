@@ -34,7 +34,7 @@
       <span class="mid-bottom"></span>
     </li>
   </ul>
-  <a href="#" class="sign-out"><i class="fa fa-sign-out"></i></a>
+  <a href="/todo/php/sp_logout.php" class="sign-out"><i class="fa fa-sign-out"></i></a>
   <div class="mobile-menu">
     <span></span>
     <span></span>
