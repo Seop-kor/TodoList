@@ -17,4 +17,12 @@ $(document).ready(function () {
     $(".board-btns button").removeClass("active");
     $(this).addClass("active");
   });
+  $(".mobile-menu").on('click', function(){
+    $(this).toggleClass("active");
+    if($(this).hasClass("active")){
+      $(this).next().addClass("show-hide");
+    }else{
+      $(this).next().removeClass("show-hide");
+    }
+  });
 });

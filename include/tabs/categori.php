@@ -35,7 +35,10 @@
     <span><?=$categori?></span>
     <span><a href="#"><?=$title?></a></span>
     <span><?=$reg?></span>
-    <span><a href="/todo/php/sp_delete_detail.php?idx=<?=$idx?>">삭제</a></span>
+    <span class="board-btn">
+      <a href="/todo/php/sp_delete_detail.php?idx=<?=$idx?>" class="del-btn txt">삭제</a>
+      <i class="fa fa-close del-btn icon"></i>
+    </span>
   </li>
   <?php
     }

@@ -6,12 +6,6 @@ detailText.forEach((item) => {
   }
 });
 
-// Mobile Menu Rotate
-const mobileMenu = document.querySelector(".mobile-menu");
-mobileMenu.addEventListener("click", () => {
-  mobileMenu.classList.toggle("active");
-});
-
 /* each-graph Function */
 let lWidth = 10;
 let tWidth = 8;
@@ -346,3 +340,9 @@ document.querySelectorAll(".board-btns button").forEach((item) => {
 function detailDelete(){
   
 }
+
+// // Mobile Menu Rotate
+// const mobileMenu = document.querySelector(".mobile-menu");
+// mobileMenu.addEventListener("click", () => {
+//   mobileMenu.classList.toggle("active");
+// });

@@ -25,8 +25,9 @@
   <link rel="stylesheet" href="/todo/css/media.css">
   <title>TODO Process</title>
   <script>
-    const path = window.location;
-    console.log(path);
+    const path = window.location.href;
+    const cat = path.split("=");
+    console.log(cat[1]);
   </script>
 </head>
 

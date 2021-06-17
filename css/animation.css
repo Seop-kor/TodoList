@@ -22,3 +22,27 @@
 
   }
 }
+@keyframes show-hide {
+  from{
+    transform: translateY(-40px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes hide {
+  from{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  to{
+    transform: translateY(-40px);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
