@@ -2,8 +2,8 @@
 include $_SERVER['DOCUMENT_ROOT']."/connect/connect.php";
 $idx = $_GET['num'];
 $title = addslashes($_POST['title']);
-$content = nl2br($_POST['content']);
-$content = addslashes($content);
+// $content = nl2br($_POST['content'], false);
+$content = trim(addslashes($_POST['content']), "<br />");
 
 $sql = "update tp_table set TP_title='$title', TP_content='$content' where TP_idx=$idx";
 

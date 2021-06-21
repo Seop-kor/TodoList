@@ -57,7 +57,7 @@
             $idx = $row['TP_idx'];
             $categori = $row['TP_categori'];
             $title = $row['TP_title'];
-            $content = $row['TP_content'];
+            $content = nl2br($row['TP_content']);
             $reg = $row['TP_reg'];
             switch($categori){
               case "database":
