@@ -74,10 +74,10 @@
                 break;
             }
           ?>
-          <form>
+          <form action="/todo/php/sp_detail_view_action.php?num=<?=$idx?>" method="post" name="detailViewForm">
           <div class="detail-title">
             <h2><?=$title?></h2>
-            <input type="text" value="<?=$title?>" class="hidden-title">
+            <input type="text" value="<?=$title?>" class="hidden-title" name="title">
           </div>
           <!-- Board-Table Start -->
           <div class="board-table detail-view">
@@ -93,7 +93,7 @@
                 <span><?=$categori?></span>
                 <span>
                   <em><?=$content?></em>
-                  <textarea class="hidden-content"><?=$content?></textarea>
+                  <textarea class="hidden-content" name="content"><?=$content?></textarea>
                 </span>
                 <span><?=$reg?></span>
               </li>
@@ -128,7 +128,7 @@
         $(".hidden-title").css("display", "block");
         $(".hidden-content").prev().css("display", "none");
         $(".hidden-content").css("display", "block");
-        $(".send-update").css("display", "block");
+        $(".send-update").css("display", "flex");
       }else{
         $(this).text("수정");
         $(".hidden-title").prev().css("display", "block");

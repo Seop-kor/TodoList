@@ -104,11 +104,15 @@
   <script src="/todo/js/main_jquery.js"></script>
   <script>
     $(function(){
+      $(".more-btn").show();
       $(".board-contents").hide();
       $(".board-contents").slice(0,5).show();
 
       $(".more-btn").click(function(){
         $(".board-contents:hidden").slice(0,5).show();
+        if($(".board-contents:hidden").length <= 0){
+          $(this).hide();
+        }
       });
     });
   </script>
