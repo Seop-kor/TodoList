@@ -33,7 +33,7 @@
   <li class="board-contents">
     <span><?=$idx?></span>
     <span><?=$categori?></span>
-    <span><a href="#"><?=$title?></a></span>
+    <span><a href="/todo/pages/sp_detail_view.php?num=<?=$idx?>"><?=$title?></a></span>
     <span><?=$reg?></span>
     <span class="board-btn">
       <a href="/todo/php/sp_delete_detail.php?idx=<?=$idx?>" class="del-btn txt">삭제</a>

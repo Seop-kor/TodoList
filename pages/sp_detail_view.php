@@ -48,46 +48,63 @@
           </div>
         </div>
         <div class="detail-board">
-          <div class="board-btns">
-            <a href="?" href=".board-table">All</a>
-            <a href="?categori=database">Database</a>
-            <a href="?categori=thermometer-half">API</a>
-            <a href="?categori=clone">Renewal</a>
-            <a href="?categori=bar-chart-o">Planning</a>
+          <?php
+            include $_SERVER['DOCUMENT_ROOT'] . "/connect/connect.php";
+            $idx = $_GET['num'];
+            $sql = "select * from tp_table where TP_idx=$idx";
+            $result = mysqli_query($dbcon, $sql);
+            $row = mysqli_fetch_array($result);
+            $idx = $row['TP_idx'];
+            $categori = $row['TP_categori'];
+            $title = $row['TP_title'];
+            $content = $row['TP_content'];
+            $reg = $row['TP_reg'];
+            switch($categori){
+              case "database":
+                $categori = "DB Project";
+                break;
+              case "thermometer-half":
+                $categori = "API Project";
+                break;
+              case "clone":
+                $categori = "Renewal Project";
+                break;
+              case "bar-chart-o":
+                $categori = "Planning Project";
+                break;
+            }
+          ?>
+          <form>
+          <div class="detail-title">
+            <h2><?=$title?></h2>
+            <input type="text" value="<?=$title?>" class="hidden-title">
           </div>
-
           <!-- Board-Table Start -->
-          <div class="board-table">
+          <div class="board-table detail-view">
             <ul>
               <li class="board-title">
                 <span>번호</span>
                 <span>분류</span>
-                <span>제목</span>
+                <span>내용</span>
                 <span>등록일</span>
-                <span>삭제</span>
               </li>
-              <?php
-                $categoriSel = "";
-                $sql = "select * from tp_table order by TP_idx desc";
-                if (array_key_exists("categori", $_GET)) {
-                  $categoriSel = $_GET['categori'];
-                  $sql = "select * from tp_table where TP_categori='$categoriSel' order by TP_idx desc";
-                }
-                include $_SERVER['DOCUMENT_ROOT'].'/todo/include/tabs/categori.php';
-              ?>
+              <li class="board-contents">
+                <span><?=$idx?></span>
+                <span><?=$categori?></span>
+                <span>
+                  <em><?=$content?></em>
+                  <textarea class="hidden-content"><?=$content?></textarea>
+                </span>
+                <span><?=$reg?></span>
+              </li>
             </ul>
           </div>
-          <!-- Board-Table End -->
-          <div class="board-footer-btns">
-              <!-- <form action="#" class="search-box" name="serch_box">
-                <select name="" id="">
-                  <option value="">아이디</option>
-                  <option value="">제목</option>
-                </select>
-                <input type="text">
-                <button type="submit"><i class="fa fa-search"></i></button>
-              </form> -->
-              <button type="button" class="more-btn">더보기</button>
+          <div class="send-update">
+            <button type="submit">수정 입력</button>
+          </div>
+          </form>
+          <div class="detail-btns">
+            <button type="button" class="update-btn">수정</button>
           </div>
         </div>
       </section>
@@ -103,27 +120,24 @@
   <!-- <script src="/todo/js/insert_form.js"></script> -->
   <script src="/todo/js/main_jquery.js"></script>
   <script>
-    $(function(){
-      $(".board-contents").hide();
-      $(".board-contents").slice(0,5).show();
-
-      $(".more-btn").click(function(){
-        $(".board-contents:hidden").slice(0,5).show();
-      });
+    $(".detail-btns .update-btn").on('click', function(){
+      $(this).toggleClass("modi");
+      if($(this).hasClass("modi")){
+        $(this).text("수정 취소");
+        $(".hidden-title").prev().css("display", "none");
+        $(".hidden-title").css("display", "block");
+        $(".hidden-content").prev().css("display", "none");
+        $(".hidden-content").css("display", "block");
+        $(".send-update").css("display", "block");
+      }else{
+        $(this).text("수정");
+        $(".hidden-title").prev().css("display", "block");
+        $(".hidden-title").css("display", "none");
+        $(".hidden-content").prev().css("display", "block");
+        $(".hidden-content").css("display", "none");
+        $(".send-update").css("display", "none");
+      }
     });
   </script>
-  <script>
-    const pathName = window.location.href;
-    const tabBtns = document.querySelectorAll('.board-btns a');
-    const tabElements = [null,'database', 'thermometer-half', 'clone', 'bar-chart-o'];
-
-    for(let i = 0; i < tabBtns.length; i++){
-      tabBtns[i].classList.remove('active');
-      if(pathName.includes(tabElements[i])){
-        tabBtns[i].classList.add('active');
-      }
-    }
-  </script>
 </body>
-
 </html>

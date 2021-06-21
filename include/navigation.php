@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['auth'])){
+  $auth = $_SESSION['auth'];
+}else{
+  header("Location: http://localhost/todo/pages/sp_auth_form.php");
+}
+?>
 <!-- Navigation Section -->
 <nav id="gnb">
   <h2>

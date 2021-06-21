@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <link rel="icon" href="/todo/img/favicon.ico" type="image/x-icon">
   <!-- Google Font Roboto, Noto Sans -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,7 +23,7 @@
   <title>TODO Process</title>
 </head>
 <body>
-  <div class="wrapper">
+  <div class="mobile-wrap">
     <div class="auth">
       <form action="/todo/php/sp_auth.php" method="post" name="auth_form" id="auth-form">
         <label for="authpass">
@@ -36,7 +36,8 @@
   </div>
   <script>
     document.querySelector("#authpass").addEventListener('keydown', function(e){
-      if(e.key == "Enter"){
+      if(e.key === "Enter"){
+        e.preventDefault();
         if(!document.querySelector("#authpass").value){
           alert("비밀번호를 입력해주세요.");
           document.querySelector("#authpass").focus();
