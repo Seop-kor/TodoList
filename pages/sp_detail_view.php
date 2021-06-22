@@ -105,6 +105,7 @@
           </form>
           <div class="detail-btns">
             <button type="button" class="update-btn">수정</button>
+            <button type="button" class="delete-btn">삭제</button>
           </div>
         </div>
       </section>
@@ -137,6 +138,22 @@
         $(".hidden-content").css("display", "none");
         $(".send-update").css("display", "none");
       }
+    });
+  </script>
+  <script>
+    document.querySelector(".delete-btn").addEventListener("click", function(){
+      const isCheck = confirm("정말 삭제하시겠습니까?");
+      if(!isCheck){
+        return;
+      }
+      const idx = document.querySelector(".board-contents span:nth-child(1)").textContent;
+      const req = new XMLHttpRequest();
+      req.addEventListener('load', function(){
+        alert("삭제가 완료 되었습니다.");
+        location.href = "/todo/pages/sp_detail_form.php";
+      });
+      req.open("GET", "http://localhost/todo/php/sp_delete_detail.php?idx="+idx);
+      req.send();
     });
   </script>
 </body>

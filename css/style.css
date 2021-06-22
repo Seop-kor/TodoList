@@ -75,9 +75,9 @@
 #graph-section > div.total-pofol .chart .percent { line-height: 0; font-size: 18px; font-weight: 300; } 
 #graph-section > div.total-pofol .chart canvas { width: auto !important; top: 50%; left: 50%; transform: translate(-50%, -50%); } 
 #graph-section .each-pofol .each-title { width: 100%; height: 25%; padding-top: 10px; } 
+#graph-section .each-pofol .each-title h3 { font-weight: 300; font-size: 18px; padding-left: 10px; border-left: 3px solid #ff9062; } 
 #graph-section .each-pofol .each-graph { width: 100%; height: 75%; display: flex; justify-content: space-between; } 
 #graph-section .each-pofol .each-graph div { width: calc(25% - 7.5px); height: 100%; border: 1px solid #f7f7f7; border-radius: 15px; box-shadow: 0px 0px 3px #ccc; display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative; _min-height: 150px; } 
-/* #graph-section .each-pofol .each-graph .chart { width: 70%; height: 70%; display: flex; justify-content: center; align-items: center; } */
 #graph-section .each-pofol .each-graph b { font-weight: 300; font-size: 12px; margin-top: 10px; } 
 #graph-section .each-pofol .each-graph i { position: absolute; font-size: 45px; opacity: 0.2; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #7c41f5; display: none; } 
 #graph-section .each-pofol .each-graph i.fa-database { color: #7c41f5; } 
@@ -91,10 +91,6 @@
 #graph-section div.intro .slide-box:nth-child(2) { background: #7c41f5; } 
 #graph-section div.intro .slide-box:nth-child(3) { background: #3acbe8; } 
 #graph-section div.intro .slide-box:nth-child(4) { background: tomato; } 
-/* #graph-section div.intro .database { background: #ff9062; } 
-#graph-section div.intro .api { background: #7c41f5; } 
-#graph-section div.intro .renewal { background: #3acbe8; } 
-#graph-section div.intro .gigi { background: tomato; } */
 
 #graph-section div.intro .slide-box.active h2 { transition: all 0.5s; animation: fade-up-01 0.5s 1 forwards; animation-delay: 0.3s; } 
 #graph-section div.intro .slide-box.active p { transition: all 0.5s; animation: fade-up-01 0.5s 1 forwards; animation-delay: 0.8s; } 
@@ -229,6 +225,6 @@
 .detail-view li span:nth-child(3) { width: 50%; } 
 .detail-view li span:nth-child(4) { width: 20%; } 
 .detail-btns { width: 100%; display: flex; justify-content: center; } 
-.detail-btns button, .send-update button { border: 1px solid #ff9062; background: #ff9062; color: #fff; padding: 5px 15px; transition: all 0.4s; } 
+.detail-btns button, .send-update button { border: 1px solid #ff9062; background: #ff9062; color: #fff; padding: 5px 15px; transition: all 0.4s; margin: 0 3px; } 
 .detail-btns button:hover, .send-update button:hover { background: #fff; color: #ff9062; } 
-.send-update {width: 100%; padding: 15px 0; margin: 10px 0; border-bottom: 1px solid #f0f0f0; justify-content: center;}
+.send-update { width: 100%; padding: 15px 0; margin: 10px 0; border-bottom: 1px solid #f0f0f0; justify-content: center; } 

@@ -46,6 +46,7 @@
       -->
       <?php
       include $_SERVER['DOCUMENT_ROOT']."/todo/include/navigation.php";
+      include $_SERVER['DOCUMENT_ROOT']."/connect/connect.php";
       ?>
       <!-- Graph Section Area -->
       <section id="graph-section">
@@ -53,25 +54,25 @@
           <div class="slide-box database">
             <h2>Database Project Process</h2>
             <p>데이터베이스 테이블 설계 완료. <br>테이블 UI 디자인 완료</p>
-            <a href="#">More Details</a>
+            <a href="/todo/pages/sp_detail_form.php?categori=database">More Details</a>
             <i class="fa fa-database"></i>
           </div>
           <div class="slide-box api">
-            <h2>Database Project Process</h2>
+            <h2>API Project Process</h2>
             <p>API 테이블 설계 완료. <br>테이블 UI 디자인 완료</p>
-            <a href="#">More Details</a>
+            <a href="/todo/pages/sp_detail_form.php?categori=thermometer-half">More Details</a>
             <i class="fa fa-database"></i>
           </div>
           <div class="slide-box renewal">
-            <h2>Database Project Process</h2>
+            <h2>Renewal Project Process</h2>
             <p>리뉴얼 테이블 설계 완료. <br>테이블 UI 디자인 완료</p>
-            <a href="#">More Details</a>
+            <a href="/todo/pages/sp_detail_form.php?categori=clone">More Details</a>
             <i class="fa fa-database"></i>            
           </div>
-          <div class="slide-box gigi">
-            <h2>Database Project Process</h2>
+          <div class="slide-box planning">
+            <h2>Planning Project Process</h2>
             <p>기획 테이블 설계 완료. <br>테이블 UI 디자인 완료</p>
-            <a href="#">More Details</a>
+            <a href="/todo/pages/sp_detail_form.php?categori=bar-chart-o">More Details</a>
             <i class="fa fa-database"></i>            
           </div>
         </div>
@@ -81,34 +82,7 @@
               <h3>Each Portfolio Process Rate</h3>
             </div>
             <div class="each-graph">
-              <!-- <div class="db">
-                <span class="chart" data-percent="75">
-                  <span class="percent"></span>
-                </span>
-                <b>DB Project</b>
-                <i class="fa fa-database"></i>
-              </div>
-              <div class="api">
-                <span class="chart" data-percent="60">
-                  <span class="percent"></span>
-                </span>
-                <b>API Project</b>
-                <i class="fa fa-thermometer-half"></i>
-              </div>
-              <div class="renewal">
-                <span class="chart" data-percent="46">
-                  <span class="percent"></span>
-                </span>
-                <b>Renewal Project</b>
-                <i class="fa fa-clone"></i>
-              </div>
-              <div class="planning">
-                <span class="chart" data-percent="89">
-                  <span class="percent"></span>
-                </span>
-                <b>Planning Project</b>
-                <i class="fa fa-bar-chart-o"></i>
-              </div> -->
+              
             </div>
           </div>
         </div>
@@ -131,5 +105,16 @@
   <!-- Main JS Load -->
   <script src="/todo/js/main.js"></script>
   <script src="/todo/js/main_jquery.js"></script>
+  <script>
+    const slides = document.querySelectorAll(".slide-box");
+    slides.forEach(item => item.addEventListener("changeClass", function(){
+      
+    }));
+    function createEvent(){
+      const change = document.createEvent("changeClass");
+      change.initEvent("changeClass", true, true);
+      
+    }
+  </script>
 </body>
 </html>

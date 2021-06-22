@@ -98,7 +98,7 @@ pieChartXml.addEventListener("load", pieChartXmlResponse);
 pieChartXml.open("GET", "http://localhost/todo/php/sp_easypiechart_action.php");
 pieChartXml.send();
 
-window.addEventListener("resize", () => {
+window.addEventListener("resize", function() {
   if(mobileResizeWidth === document.body.clientWidth && mobileResizeHeight === document.body.clientHeight){
     return;
   }

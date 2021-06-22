@@ -90,14 +90,14 @@ function fetchHTML(json){
   const renewalRate = Number(json.renew_rate);
   const planningRate = Number(json.plan_rate);
   const rateAvg = (dbRate * 0.4) + (apiRate * 0.2) + (renewalRate * 0.1) + (planningRate * 0.3);
-  if(rateAvg >= 80){
-    document.querySelector(".total-txt p").innerHTML = `Your process rate is very nice!!<br>Good!! Go Home!`;
-  }else if(rateAvg >= 50){
-    document.querySelector(".total-txt p").innerHTML = `Your process rate is not bad..<br>More! More!!`;
-  }else if(rateAvg >= 20){
-    document.querySelector(".total-txt p").innerHTML = `Your process rate is very low...<br>Plz Hurry Up!!!!!`;
+  if(rateAvg >= 90){
+    document.querySelector(".total-txt p").innerHTML = `Almost done! <br> Check your detail process!`;
+  }else if(rateAvg >= 66){
+    document.querySelector(".total-txt p").innerHTML = `Maybe Now you have to deploy first<br>then check rests.`;
+  }else if(rateAvg >= 34){
+    document.querySelector(".total-txt p").innerHTML = `Don't forget the Gitgub Backup!<br>Hurry Up!!!`;
   }else {
-    document.querySelector(".total-txt p").innerHTML = `Oh My god..<br>Your process rate is very very low...`;
+    document.querySelector(".total-txt p").innerHTML = `Your process rate is very low...<br>Plz Hurry Up!!!!!`;
   }
   inner(charts, `<div class="db">
   <span class="chart" data-percent="${dbRate}">
@@ -162,7 +162,7 @@ pieChartXml.addEventListener("load", pieChartXmlResponse);
 pieChartXml.open("GET", "http://localhost/todo/php/sp_easypiechart_action.php");
 pieChartXml.send();
 
-window.addEventListener("resize", () => {
+window.addEventListener("resize", function(){
   if(mobileResizeWidth === document.body.clientWidth && mobileResizeHeight === document.body.clientHeight){
     return;
   }
@@ -186,7 +186,7 @@ window.addEventListener("resize", () => {
   }, 150);
 });
 
-window.addEventListener("resize", () => {
+window.addEventListener("resize", function(){
   if(mobileResizeWidth === document.body.clientWidth && mobileResizeHeight === document.body.clientHeight){
     return;
   }
@@ -231,7 +231,7 @@ function xmlreq() {
     <li>
       <i class='fa fa-${item.tp_categori}'></i>
       <div class='detail-text'>
-        <p><a href='#'>${item.tp_title}</a></p>
+        <p><a href='/todo/pages/sp_detail_view.php?num=${item.tp_idx}'>${item.tp_title}</a></p>
         <em>${item.tp_reg}</em>
       </div>
     </li>

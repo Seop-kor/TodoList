@@ -2,7 +2,7 @@
   <div class="new-update">
     <div class="new-update-title">
       <p>Recent Update</p>
-      <a href="#">More</a>
+      <a href="/todo/pages/sp_detail_form.php">More</a>
     </div>
     <ul class="update-details">
       <?php
@@ -26,7 +26,7 @@
           <li>
             <i class="fa fa-<?= $categori ?>"></i>
             <div class="detail-text">
-              <p><a href="#"><?= $title ?></a></p>
+              <p><a href="/todo/pages/sp_detail_view.php?num=<?=$idx?>"><?= $title ?></a></p>
               <em><?= $reg ?></em>
             </div>
           </li>
