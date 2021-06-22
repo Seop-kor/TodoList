@@ -3,7 +3,9 @@ session_start();
 if(isset($_SESSION['auth'])){
   $auth = $_SESSION['auth'];
 }else{
-  header("Location: http://localhost/todo/pages/sp_auth_form.php");
+  // header("Location: http://localhost/todo/pages/sp_auth_form.php");
+  // header("Location: http://dkdn1004.dothome.co.kr/todo/pages/sp_auth_form.php");
+  echo "<script>location.href='/todo/pages/sp_auth_form.php'</script>";
 }
 ?>
 <!-- Navigation Section -->
