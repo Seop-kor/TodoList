@@ -21,6 +21,10 @@ DB에 암호화 되어있는 암호를 가져와 입력된 암호화 대조 후 
 
 진행된 일정을 볼 수 있음
 
+![Untitled](./img/dkdn1004.dothome.co.kr_todo.png)
+
+반응형이 적용된 메인페이지
+
 ## Getting Started
 
 - [Hosting Site](http://dkdn1004.dothome.co.kr/todo)
